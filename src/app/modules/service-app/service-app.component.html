@@ -1,0 +1,24 @@
+
+<h2>
+    Send request on this page
+</h2>
+
+<div class="ms-5">
+    <button class="btn btn-danger" (click)="click()">decrease</button>
+    <button class="btn btn-success">increase</button>
+</div>
+
+
+<div>
+    <h3>ngfor yapısı</h3>
+    <ul *ngFor="let item of testData">
+        <li>{{item.id}} - {{item.username}}</li>
+    </ul>
+</div>
+<div class="">
+    <h3>CRUD Buttons</h3>
+    <button class="btn btn-primary ms-2" (click)="get()">GET</button>
+    <button class="btn btn-success ms-2"(click)="post()">POST</button>
+    <button class="btn btn-warning ms-2"(click)="postUpdate()">UPDATE</button>
+    <button class="btn btn-danger ms-2"(click)="deleted()">DELETE</button>
+</div>
