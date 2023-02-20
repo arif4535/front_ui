@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { TestComponent } from './test/test.component';
 import { ServiceAppComponent } from './modules/service-app/service-app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
 import { FormPageAppComponent } from './modules/form_page/form-page-app/form-page-app.component';
 import { UserManagementComponent } from './modules/user-management/user-management.component';
 
@@ -24,6 +26,9 @@ import { UserManagementComponent } from './modules/user-management/user-manageme
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

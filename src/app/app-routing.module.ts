@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'test_service', component: ServiceAppComponent },
   { path: 'form_page', component: FormPageAppComponent},
   { path: 'user_management', component:UserManagementComponent},
+  { path: 'new_api' , component: UserManagementComponent},
 ];
 
 // burası routing işleminin yapıldığı yer yani adresleme işlemleri

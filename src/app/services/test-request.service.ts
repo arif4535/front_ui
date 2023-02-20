@@ -36,4 +36,17 @@ export class TestRequestService {
     }));
 
   }
+
+  public saveReq(data:any): any{
+    return this._http.post('http://localhost:3000/save_angular', data).pipe(map((res:any)=>{
+      return res;
+    }));
+  }
+
+  public newReq(data:any): any{
+    return this._http.post('http://localhost:3000/product/save_product', data).pipe(map((res:any)=>{
+      return res;
+    }));
+  }
+ 
 }
