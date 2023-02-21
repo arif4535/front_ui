@@ -48,15 +48,15 @@
           </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let test of users">
+            <tr *ngFor="let test of users; index as i ">
               <td>{{test.id}}</td>
               <td>{{test.name}}</td>
               <td>{{test.lastname}}</td>
               <td>{{test.username}}</td>
               <td>{{test.password}}</td>
               <td>{{test.email}}</td>
-              <td><button class="btn btn-warning ms-2" >UPDATE </button></td>
-              <td><button class="btn btn-danger ms-2">DELETE</button></td>
+              <td><button class="btn btn-warning ms-2" (click)="open(test)">UPDATE </button></td>
+              <td><button class="btn btn-danger ms-2" (click)="deleteUser(i)" >DELETE</button></td>
             </tr>
         </tbody>
       </table>

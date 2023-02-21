@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TestRequestService } from 'src/app/services/test-request.service';
+import { UpdateModalComponent } from './modals/update-modal/update-modal.component';
 
 @Component({
   selector: 'app-user-management',
@@ -30,14 +32,14 @@ export class UserManagementComponent {
       email:'deneme@gmail.com'
     },
   ]
-  userForm = new FormGroup({
-    name: new FormControl('', [Validators.required]),
+   userForm = new FormGroup({
     lastName: new FormControl('', [Validators.required]),
+    name: new FormControl('', [Validators.required]),
     username:new FormControl('',[Validators.required]),
     password:new FormControl('',[Validators.required]),
     email: new FormControl('',[Validators.required, Validators.email]),
   })
-  constructor (private service: TestRequestService) {}
+  constructor (private service: TestRequestService, private modalService: NgbModal) {}
   
  
 
@@ -68,4 +70,8 @@ export class UserManagementComponent {
     this.users.splice(index, 1);
   }
 
+  open(data: any) {
+		const modalRef = this.modalService.open(UpdateModalComponent, {size:'lg'});
+		modalRef.componentInstance.modalform.reset(data);
+	} 
 }
