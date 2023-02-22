@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TestRequestService } from 'src/app/services/test-request.service';
@@ -9,11 +9,8 @@ import { UpdateModalComponent } from './modals/update-modal/update-modal.compone
   templateUrl: './user-management.component.html',
   styleUrls: ['./user-management.component.scss'],
   providers: [TestRequestService]
-
 })
 export class UserManagementComponent {
-
-
   users: any[] = [
     {
       id: 0,  
@@ -33,22 +30,17 @@ export class UserManagementComponent {
     },
   ]
    userForm = new FormGroup({
-    lastName: new FormControl('', [Validators.required]),
     name: new FormControl('', [Validators.required]),
+    lastname: new FormControl('', [Validators.required]),
     username:new FormControl('',[Validators.required]),
     password:new FormControl('',[Validators.required]),
     email: new FormControl('',[Validators.required, Validators.email]),
   })
   constructor (private service: TestRequestService, private modalService: NgbModal) {}
-  
- 
-
-
-  
   public saveUser(): void{
     const data = {
       name: this.userForm.get('name')?.value,
-      lastName: this.userForm.get('lastName')?.value,
+      lastName: this.userForm.get('lastname')?.value,
       password:this.userForm.get('password')?.value,
       email:this.userForm.get('email')?.value,
       username:this.userForm.get('username')?.value
@@ -62,16 +54,19 @@ export class UserManagementComponent {
     //  });
     
     this.users.push(data);
- 
   }
   // functional programming
-
   public deleteUser(index: number) {
     this.users.splice(index, 1);
   }
-
   open(data: any) {
 		const modalRef = this.modalService.open(UpdateModalComponent, {size:'lg'});
-		modalRef.componentInstance.modalform.reset(data);
+		modalRef.componentInstance.modalform.reset(data) ;
+    if(this.modalService.hasOpenModals()) {
+      modalRef.componentInstance.modaldata.subscribe((param: any) => {
+        this.users[data.id]['username'] = param.get('username')?.value;
+      })
+    }
+
 	} 
 }

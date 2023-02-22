@@ -3,7 +3,7 @@
     <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
 </div>
 <div class="modal-body">
-          <form [formGroup]="modalform">
+          <form [formGroup]="modalform" >
             <p class="h2 text-center">Users Update Page</p>
             <div class="row d-flex justify-content-center">
               <div class="col-md-6">
@@ -12,7 +12,7 @@
               </div>
               <div class="form-group col-md-6">
                 <label >Lastname</label>
-                <input class="form-control"  placeholder="Lastname" formControlName="lastName">
+                <input class="form-control"  placeholder="Lastname" formControlName="lastname">
               </div>
             </div>
             <div class="row d-flex justify-content-center">
@@ -32,5 +32,5 @@
         </form>
 <div class="modal-footer">
     <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
-        <button type="submit"  class="btn btn-primary float-end ">Save</button>
+        <button type="submit"  class="btn btn-primary float-end " (click)="savedata()">Save</button>
 </div>
