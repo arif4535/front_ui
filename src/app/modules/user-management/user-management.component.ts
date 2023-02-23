@@ -60,7 +60,7 @@ export class UserManagementComponent {
     this.users.splice(index, 1);
   }
   open(data: any) {
-		const modalRef = this.modalService.open(UpdateModalComponent, {size:'lg'});
+		const modalRef = this.modalService.open(UpdateModalComponent, {size:'lg', backdrop:'static'});
 		modalRef.componentInstance.modalform.reset(data) ;
     if(this.modalService.hasOpenModals()) {
       modalRef.componentInstance.modaldata.subscribe((param: any) => {
