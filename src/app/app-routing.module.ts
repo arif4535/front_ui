@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormPageAppComponent } from './modules/form_page/form-page-app/form-page-app.component';
 import { ServiceAppComponent } from './modules/service-app/service-app.component';
 import { UserManagementComponent } from './modules/user-management/user-management.component';
+import { ProductsCardComponent } from './products-card/products-card.component';
 import { TestComponent } from './test/test.component';
 
 const routes: Routes = [
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'form_page', component: FormPageAppComponent},
   { path: 'user_management', component:UserManagementComponent},
   { path: 'new_api' , component: UserManagementComponent},
+  { path: 'card', component: ProductsCardComponent},
 ];
 
 // burası routing işleminin yapıldığı yer yani adresleme işlemleri

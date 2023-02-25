@@ -30,10 +30,13 @@ export class UserManagementComponent {
     },
   ]
    userForm = new FormGroup({
-    name: new FormControl('', [Validators.required]),
-    lastname: new FormControl('', [Validators.required]),
-    username:new FormControl('',[Validators.required]),
-    password:new FormControl('',[Validators.required]),
+    name: new FormControl('', [Validators.required,Validators.minLength(4),
+      Validators.maxLength(20)]),
+    lastname: new FormControl('', [Validators.required,Validators.minLength(4),
+      Validators.maxLength(20)]),
+    username:new FormControl('',[Validators.required,Validators.minLength(4),
+      Validators.maxLength(20)]),
+    password:new FormControl('',[Validators.required, Validators.minLength(4)]),
     email: new FormControl('',[Validators.required, Validators.email]),
   })
   constructor (private service: TestRequestService, private modalService: NgbModal) {}
@@ -54,13 +57,14 @@ export class UserManagementComponent {
     //  });
     
     this.users.push(data);
+    
   }
   // functional programming
   public deleteUser(index: number) {
     this.users.splice(index, 1);
   }
   open(data: any) {
-		const modalRef = this.modalService.open(UpdateModalComponent, {size:'lg', backdrop:'static'});
+		const modalRef = this.modalService.open(UpdateModalComponent, {size:'lg'});
 		modalRef.componentInstance.modalform.reset(data) ;
     if(this.modalService.hasOpenModals()) {
       modalRef.componentInstance.modaldata.subscribe((param: any) => {
@@ -69,4 +73,12 @@ export class UserManagementComponent {
     }
 
 	} 
+  public get _fControls() {
+    return this.userForm.controls;
+  }
+  onSubmit() {
+    if (this.userForm.invalid) {
+      return;
+    }
+  }
 }

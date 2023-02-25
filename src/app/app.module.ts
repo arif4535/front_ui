@@ -11,6 +11,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { FormPageAppComponent } from './modules/form_page/form-page-app/form-page-app.component';
 import { UserManagementComponent } from './modules/user-management/user-management.component';
 import { UpdateModalComponent } from './modules/user-management/modals/update-modal/update-modal.component';
+import { ProductsCardComponent } from './products-card/products-card.component';
 
 
 // burası oluşan ve sonradan import ettiğimiz modüllerin tanımlandığı yer. dışarıdan yada oluşturduğun tüm modüller burda otomatik tanımlanır
@@ -22,6 +23,7 @@ import { UpdateModalComponent } from './modules/user-management/modals/update-mo
     FormPageAppComponent,
     UserManagementComponent,
     UpdateModalComponent,
+    ProductsCardComponent,
     
   ],
   imports: [
