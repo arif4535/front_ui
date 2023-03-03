@@ -1,0 +1,72 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-6 mx-auto my-auto renk rounded-2 shadow p-3 d-flex justify-content-center">
+      <form [formGroup]="registerform" (ngSubmit)="onSubmit()">
+        <p class="h2 text-center ">Register</p>
+        <div class="row d-flex justify-content-center">
+          <div class="col-md-6">
+           <label for="usernameInput" >Name</label>
+            <input type="text" class="form-control" id="usernameInput" placeholder="Name" formControlName="name" 
+            [class.is-invalid]="_fControls['name'].invalid && _fControls['name'].touched " required/>
+            <div
+              *ngIf="_fControls['name'].invalid && _fControls['name'].touched"
+              class="invalid-feedback" >
+           <div *ngIf="registerform.controls['name'].errors">
+              Name is required.
+           </div>
+            </div>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="lastnameInput">Lastname</label>
+            <input type="text" class="form-control" id="lastnameInput" placeholder="Lastname" formControlName="lastname"
+            [class.is-invalid]="_fControls['lastname'].invalid && _fControls['lastname'].touched" required/>
+            <div *ngIf="_fControls['lastname'].invalid && _fControls['lastname'].touched"
+            class="invalid-feedback" >
+            <div *ngIf="registerform.controls['lastname'].errors"> Please enter lastname</div>
+          </div>
+          </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+          <div class="col-md-6">
+           <label for="usernameInput" >Username</label>
+            <input  type="text" class="form-control" id="usernameInput" placeholder="Username" formControlName="username"
+            [class.is-invalid]="_fControls['username'].invalid && _fControls['username'].touched " />
+            <div *ngIf="_fControls['username'].invalid && _fControls['username'].touched"
+            class="invalid-feedback">
+            <div *ngIf="registerform.controls['username'].errors">
+              Username is required
+            </div>
+            </div>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputPassword4" >Password</label>
+            <input type="password" class="form-control" id="inputPassword4" placeholder="Password" formControlName="password" 
+            [class.is-invalid]="_fControls['password'].invalid && _fControls['password'].touched"/>
+            <div *ngIf="_fControls['password'].invalid &&
+                        _fControls['password'].touched &&
+                        _fControls['password'].dirty" class="invalid-feedback">
+                <div *ngIf="registerform.controls['password'].errors">
+                Password is required.
+                </div>
+              </div>
+            </div>
+          </div>
+        <div class="col-md-12">
+          <label for="inputEmail4" >Email</label>
+           <input type="email" class="form-control" id="inputEmail4"placeholder="Email" formControlName="email"
+            [class.is-invalid]="_fControls['email'].invalid && _fControls['email'].touched"/>
+            <div *ngIf="_fControls['email'].invalid && _fControls['email'].touched"
+            class="invalid-feedback">
+            <div *ngIf="registerform.controls['email'].errors">
+             Please enter Email.
+            </div>
+          </div>          
+         </div>
+        <div class="row d-flex justify-content-center">
+          <div class="col-3 p-3 ">
+              <button type="submit" (click)="saveUser()" class="btn btn-primary float-end ">Save</button>
+          </div>                
+      </div>   
+    </form>
+    </div>
+    </div>
