@@ -2,15 +2,20 @@
     <h4 class="modal-title  ">Attantion!!</h4>
     <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
 </div>
-
-<div>
-    <p class="h5 text-center">Silmek İstediğinizden Eminmisiniz</p>
+<div class="modal-body ">
+  <form >
+    <p class="h5 text-center">Silmek İstediğinizden Eminmisiniz</p> 
+  <div class="form-group col-md-6">
+    <label for="inputPassword4" >Password</label>
+    <input type="password" class="form-control" id="inputPassword4" placeholder="To confirm enter the" formControlName="password" >
+  </div>  
+</form>
     <div class="modal-footer">
       <button type="button"
         class="btn btn-outline-dark"
         (click)="activeModal.close(false)">Cancel</button>
-      <button type="button"
+        <button type="button"
         class="btn btn-outline-dark"
-        (click)="deltedata()">Delete</button>
+        (click)="deletdata()">delete</button>
     </div>
   </div>
