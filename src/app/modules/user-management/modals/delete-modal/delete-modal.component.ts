@@ -3,9 +3,6 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { UserService } from 'src/app/services/user.service';
 import { ToastrService } from 'ngx-toastr';
 
-
-
-
 @Component({
   selector: 'app-delete-modal',
   templateUrl: './delete-modal.component.html',

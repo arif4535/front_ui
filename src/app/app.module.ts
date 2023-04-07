@@ -21,6 +21,19 @@ import { AuthPageComponent } from './modules/auth-page/auth-page.component';
 import { RegisterComponent } from './modules/register/register.component';
 import { HeaderComponent } from './modules/layout/header/header.component';
 import { FooterComponent } from './modules/layout/footer/footer.component';
+import { UpdateBtnCellRendererComponent } from './modules/user-management/btn-cell-renderer/update-btn-cell-renderer.component';
+import { DeleteBtnCellRendererCompopnent } from './modules/user-management/btn-cell-renderer/delete-btn-cell-renderer.component';
+import { UserGridComponent } from './modules/user-management/user-grid/user-grid.component';
+import { NgChartsModule } from 'ng2-charts';
+import { NZ_I18N } from 'ng-zorro-antd/i18n';
+import { en_US } from 'ng-zorro-antd/i18n';
+import { registerLocaleData } from '@angular/common';
+import en from '@angular/common/locales/en';
+import { IconsProviderModule } from './icons-provider.module';
+import { NzLayoutModule } from 'ng-zorro-antd/layout';
+import { NzMenuModule } from 'ng-zorro-antd/menu';
+import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
+registerLocaleData(en);
 
 
 
@@ -37,7 +50,10 @@ import { FooterComponent } from './modules/layout/footer/footer.component';
     AuthPageComponent,
     RegisterComponent,
     HeaderComponent,
-    FooterComponent,    
+    FooterComponent,
+    UpdateBtnCellRendererComponent,
+    DeleteBtnCellRendererCompopnent,
+    UserGridComponent    
   ],
   imports: [
     BrowserModule,
@@ -52,9 +68,16 @@ import { FooterComponent } from './modules/layout/footer/footer.component';
       preventDuplicates:true
     }),
     BrowserAnimationsModule,
+    NgChartsModule,
+    IconsProviderModule,
+    NzLayoutModule,
+    NzMenuModule,
+    NzDropDownModule
     
   ],
-  providers: [],
+  providers: [
+    { provide: NZ_I18N, useValue: en_US }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

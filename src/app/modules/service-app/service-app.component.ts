@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { TestRequestService } from 'src/app/services/test-request.service';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-service-app',
@@ -12,7 +14,9 @@ export class ServiceAppComponent {
   users: any;
 
   // di
-  constructor (private service: TestRequestService) {}
+  constructor (private service: TestRequestService,
+    private toastr:ToastrService 
+    ) {}
 
   testData: any = [
     {
@@ -74,6 +78,9 @@ export class ServiceAppComponent {
       console.log(error);
     }
     )
+  }
+  showSuccess() {
+    this.toastr.success('Hello world!', 'Toastr fun!');
   }
  
   

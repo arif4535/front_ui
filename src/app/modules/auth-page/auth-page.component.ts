@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth-page',
@@ -7,7 +8,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./auth-page.component.scss']
 })
 export class AuthPageComponent {
-  constructor() {}
+  constructor(private router: Router) {}
 
   authForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -16,6 +17,13 @@ export class AuthPageComponent {
       Validators.minLength(8),
     ])
   });
+
+  nav() {
+    this.router.navigate(['/user_management'])
+  }
+  register(){
+    this.router.navigate(['/register'])
+  }
 
   public get _fControls() {
     return this.authForm.controls;

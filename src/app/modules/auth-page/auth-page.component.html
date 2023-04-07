@@ -1,48 +1,56 @@
-<div class="container">
-<div calss="row">
-
-    <div class="col-md-6 mx-auto my-auto rounded-2 shadow p-3 d-flex justify-content-center">
-    <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
-        <div class="text-center">
-            <img src="https://t3.ftcdn.net/jpg/05/17/79/88/360_F_517798849_WuXhHTpg2djTbfNf0FQAjzFEoluHpnct.jpg"
-              style="width: 185px;" alt="logo">
-        </div>
-        <div class="col-md-12">
-          <label for="inputEmail4" >Email</label>
-           <input type="email" class="form-control" id="inputEmail4"placeholder="Email" formControlName="email"
-            [class.is-invalid]="_fControls['email'].invalid && _fControls['email'].touched"/>
-            <div *ngIf="_fControls['email'].invalid && _fControls['email'].touched"
-            class="invalid-feedback">
-            <div *ngIf="authForm.controls['email'].errors">
-              Please enter Email
-            </div>
-            <div *ngIf="authForm.controls['email'].errors 'email'"></div>
-            format the email
-        </div> 
-    </div>
-    <div class="form-group  ">
-      <label class="form-label" for="form2Example2">Password</label>
-      <input type="password" id="form2Example2" class="form-control" placeholder="Password" formControlName="password"
-       [class.is-invalid]="_fControls['password'].invalid && _fControls ['password'].touched"/>
-       <div *ngIf="_fControls['password'].invalid && _fControls['password'].touched"
-          class="invalid-feedback"> 
-          <div *ngIf="authForm.controls['password'].errors">
-           Please enter Password
+<div class="container"  style="min-height: 76.3vh;">
+  <div class="row d-flex justify-content-center " >
+    <div class="col-md-5 col-sm-12 mt-5">
+      <div class="card ">
+        <div class="card-body ">
+        <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
+          <div class="text-center">
+              <img src="https://t3.ftcdn.net/jpg/05/17/79/88/360_F_517798849_WuXhHTpg2djTbfNf0FQAjzFEoluHpnct.jpg"
+                style="width: 185px;" alt="logo">
           </div>
-        </div>          
-    </div>
-    <div class="row alt d-flex justify-content-center">
-            <button type="submit" class="btn btn-primary float-end ">Log In</button>
-    <div
-      *ngIf="_fControls['password'].invalid &&
-      _fControls['password'].touched &&
-      _fControls['password'].dirty" class="invalid-feedback">
-    </div>
-    </div>   
-    <div class="text-center">
-        <p>Not a member? <a href="http://localhost:4200/register">Register</a></p>
+          <div class="col-md-12 ">
+            <label for="inputEmail4 " class="form-label" >Email</label>
+             <input type="email" class="form-control" id="inputEmail4"placeholder="Email" formControlName="email"
+              [class.is-invalid]="_fControls['email'].invalid && _fControls['email'].touched"/>
+              <div *ngIf="_fControls['email'].invalid && _fControls['email'].touched"
+              class="invalid-feedback">
+              <div *ngIf="authForm.controls['email'].errors">
+                Please enter Email
+              </div>
+              <div *ngIf="authForm.controls['email'].errors 'email'"></div>
+              format the email
+          </div> 
+            </div>
+            <div class="form-group  ">
+              <label class="form-label" for="form2Example2 " >Password</label>
+              <input type="password" id="form2Example2" class="form-control" placeholder="Password" formControlName="password"
+              [class.is-invalid]="_fControls['password'].invalid && _fControls ['password'].touched"/>
+              <div *ngIf="_fControls['password'].invalid && _fControls['password'].touched"
+                  class="invalid-feedback"> 
+                  <div *ngIf="authForm.controls['password'].errors">
+                  Please enter Password
+                  </div>
+                    <div
+                  *ngIf="_fControls['password'].invalid &&
+                  _fControls['password'].touched &&
+                  _fControls['password'].dirty" class="invalid-feedback">
+                  </div>
+                </div>          
+                  <button class="btn btn-primary mt-3 "(click)="nav()" >UPDATE </button>
+                </div>
+            <div class="text-center mt-3">
+              <p>Not a member? <a href="register">Register</a></p>
+            <p>Or contiune with:</p>  
+            <div row class="d-flex justify-content-center ">
+              <div class="row">
+                <div class="col-md-12">
+                  <a class="btn btn-lg btn-google btn-block text-uppercase btn-outline" href="#"><img src="https://img.icons8.com/color/16/000000/google-logo.png"> Signup Using Google</a>
+                </div>
+            </div>
+            </div>
+          </div>
+        </form>
       </div>
-    </form>
+      </div>
     </div>
-</div>
-</div>
+  </div>

@@ -1,5 +1,5 @@
-<div class="container">
-  <div class="row">
+ <div class="container"> 
+  <!-- <div class="row">
     <div class="col-md-6 mx-auto my-auto renk rounded-2 shadow p-3 d-flex justify-content-center">
     <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
       <p class="h2 text-center">Üyelik Sayfası</p>
@@ -10,17 +10,10 @@
           [class.is-invalid]="_fControls['name'].invalid && _fControls['name'].touched " required/>
           <div
             *ngIf="_fControls['name'].invalid && _fControls['name'].touched"
-            class="invalid-feedback"
-          >
-         <!-- <div *ngIf="_fControls['name'].errors['required']">
+            class="invalid-feedback" >
+         <div *ngIf="userForm.controls['name'].errors">
             name is required.
-          </div>
-          <div *ngIf="_fControls['name'].errors['minlenght']">
-            Min 4 characters.
-          </div>
-          <div *ngIf="_fControls['name'].errors['maxlenght']">
-            max 20 characters.
-          </div>-->
+         </div>
           </div>
         </div>
         <div class="form-group col-md-6">
@@ -30,15 +23,7 @@
           <div *ngIf="_fControls['lastname'].invalid && _fControls['lastname'].touched"
           class="invalid-feedback"
           >
-            <!--<div *ngIf="_fControls['lastname'].errors['required']">
-              lastname is required.
-            </div>
-            <div *ngIf="_fControls['lastname'].errors['minlenght']">
-              min 4 characters.
-            </div>
-            <div *ngIf="_fControls['lastname'].errors['maxlenght']">
-              max 20 characters.
-            </div>-->
+          <div *ngIf="userForm.controls['lastname'].errors"> Please enter lastname</div>
         </div>
         </div>
       </div>
@@ -49,15 +34,9 @@
           [class.is-invalid]="_fControls['username'].invalid && _fControls['username'].touched " />
           <div *ngIf="_fControls['username'].invalid && _fControls['username'].touched"
           class="invalid-feedback">
-          <!--<div *ngIf="_fControls['username'].errors['required']">
+          <div *ngIf="userForm.controls['username'].errors">
             Username is required
           </div>
-          <div *ngIf="_fControls['username'].errors['minlenght']">
-            Min 4 characters.
-          </div>
-          <div *ngIf="_fControls['username'].errors['maxlenght']">
-            max 20 characters.
-          </div>-->
           </div>
         </div>
         <div class="form-group col-md-6">
@@ -67,8 +46,9 @@
           <div *ngIf="_fControls['password'].invalid &&
                       _fControls['password'].touched &&
                       _fControls['password'].dirty" class="invalid-feedback">
-           <!-- <div *ngIf="_fControls['password'].errors['required']">-->
+              <div *ngIf="userForm.controls['password'].errors">
               Password is required.
+              </div>
             </div>
           </div>
         </div>
@@ -78,22 +58,19 @@
           [class.is-invalid]="_fControls['email'].invalid && _fControls['email'].touched"/>
           <div *ngIf="_fControls['email'].invalid && _fControls['email'].touched"
           class="invalid-feedback">
-          <!-- <div *ngIf="_fControls['email'].errors['required']">
-          Email is required.
-        </div>
-          <div *ngIf="_fControls['email'].errors['email']">
-            Please enter a valid email.
-          </div>-->
+          <div *ngIf="userForm.controls['email'].errors">
+           Please enter Email.
+          </div>
         </div>          
        </div>
       <div class="row d-flex justify-content-center">
         <div class="col-3 p-3 ">
-            <button type="submit" (click)="saveUser()" class="btn btn-primary float-end ">Save</button>
+            <button type="submit" (click)="postCreateUsers()" class="btn btn-primary float-end ">Save</button>
         </div>                
     </div>   
   </form>
-  </div>
-  <div class="row d-flex justify-content-center">
+  </div> -->
+ <!-- <div class="row d-flex justify-content-center table-body">
     <div class="col-md-6 ">
       <table class="table table-striped  ">
         <thead>
@@ -107,18 +84,27 @@
           </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let test of users; index as i ">
+            <tr *ngFor="let test of userData; index as i ">
               <td>{{test.id}}</td>
               <td>{{test.name}}</td>
               <td>{{test.lastname}}</td>
               <td>{{test.username}}</td>
               <td>{{test.password}}</td>
               <td>{{test.email}}</td>
-              <td><button class="btn btn-warning ms-2" (click)="open(test)">UPDATE </button></td>
-              <td><button class="btn btn-danger ms-2" (click)="deleteUser(i)" >DELETE</button></td>
-            </tr>
+              <td><button class="btn btn-primary ms-2" (click)="openuser(test)">UPDATE </button></td>
+              <td><button class="btn btn-danger ms-2" (click)="removeuser(test.id)" >DELETE</button></td>
+            </tr> 
         </tbody>
       </table>
     </div>
-  </div>
-</div>
+  </div> -->
+  <!-- <app-user-grid></app-user-grid> -->
+</div> 
+<ag-grid-angular 
+    style="width:auto; height: 400px;" 
+    class="ag-theme-alpine"
+    [rowData]="rowData" 
+    [columnDefs]="columnDefs"
+    [frameworkComponents]="frameworkComponents"
+    >
+</ag-grid-angular>

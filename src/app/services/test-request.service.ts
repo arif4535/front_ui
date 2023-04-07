@@ -47,6 +47,10 @@ export class TestRequestService {
     return this._http.post('http://localhost:3000/product/save_product', data).pipe(map((res:any)=>{
       return res;
     }));
-  }
- 
+  } 
+  public denemeReq(): any{
+    return this._http.get('http://localhost:3000/getdeneme').pipe(map((res:any)=>{
+      return res;
+    }));
+  }  
 }
